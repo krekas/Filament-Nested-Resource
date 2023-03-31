@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use Filament\Tables;
 use App\Filament\Resources\LessonResource\Pages;
 use App\Models\Lesson;
 use Filament\Forms\Components\TextInput;
@@ -39,9 +40,14 @@ class LessonResource extends Resource
                     ->searchable()
                     ->sortable(),
             ])
-            ->appendActions([
-                DeleteAction::make()
-                    ->requiresConfirmation(),
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 

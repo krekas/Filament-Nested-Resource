@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         Filament::serving(function () {
             Filament::registerNavigationItems([
                 NavigationItem::make('Courses')
-                    ->url(CourseResource::getUrl('index'))
+                    ->url(CourseResource::getUrl())
                     ->icon('heroicon-o-academic-cap')
                     ->activeIcon('heroicon-s-academic-cap')
                     ->isActiveWhen(fn (): bool => request()->routeIs('filament.resources.courses.*') || request()->routeIs('filament.resources.courses/lessons.*')),
